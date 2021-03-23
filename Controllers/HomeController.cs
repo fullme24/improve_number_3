@@ -112,6 +112,12 @@ namespace improve_number_3.Controllers
             return View("List", _MovieDataBaseContext.Movies);
         }
 
+        //gets users to podecast page
+        public IActionResult Podecast()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
