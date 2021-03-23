@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MovieDataBase>
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--
+    This is the page that will list out the current records
+-->
+
+<h1>Current List</h1>
+
+<div>
+    <hr />
+    <table>
+        <thead class="rounded">
+            <tr>
+                <th class="p-2">Category</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Title</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Year</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Director</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Rating</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Edited</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Lent to</th>
+                &nbsp
+                &nbsp
+                <th class="p-2">Notes</thclass="p-2">
+            </tr>
+        </thead>
+
+        <tbody class="bg-white rounded">
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td class="p-2">@c.Category</td>
+                    <td class="p-2">@c.Title</td>
+                    <td class="p-2">@c.Year</td>
+                    <td class="p-2">@c.Director</td>
+                    <td class="p-2">@c.Rating</td>
+                    <td class="p-2">@c.Edited</td>
+                    <td class="p-2">@c.Lent_to</td>
+                    <td class="p-2">@c.Notes</td>
+                    <td>
+                        <form asp-controller="Home" asp-action="List" method="post">
+                            <input hidden value="@c.MovieId" name="movieid"/>
+                            <button type="submit">
+                                Edit
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
